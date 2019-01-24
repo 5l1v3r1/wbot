@@ -17,7 +17,7 @@ browser = webdriver.Firefox(executable_path='C:\user\wbot\geckodriver')
 In main.py put a send command like this:
 
 ```
-  wbot.send_messages_to_contact('Charlie Chaplin', 'Hello, how are you?')
+wbot.send_messages_to_contact('Charlie Chaplin', 'Hello, how are you?')
 ```
 
 
