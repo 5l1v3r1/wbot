@@ -46,7 +46,7 @@ def send_messages_to_contact(contact_name, *messages):
 				input.send_keys(c)
 		input.send_keys(Keys.ENTER)
 		print('Message sent to ' + contact_name + '.')
-		sleep(0.5)
+		sleep(0.6)
 
 def retrieve_newest(contact_name, num):
 	while True:
