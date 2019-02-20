@@ -10,42 +10,6 @@ def start():
 	browser.get('https://web.whatsapp.com/')
 	print('Scan QR')
 
-def send_message_to_contact(message, *contact_name):
-	while True:
-		try:
-			search = browser.find_element_by_css_selector('#side > div._3CPl4 > div > label > input')
-		except NoSuchElementException:
-			sleep(1)
-			continue
-		break
-	for n in contact_name:
-		title = None
-		try:
-			title = browser.find_element_by_css_selector('#main > header > div._1WBXd > div > div > span').text
-		except NoSuchElementException:
-			pass
-		if title != n:
-			search.send_keys(n)
-			search.send_keys(Keys.ENTER)
-			try:
-				not_found = browser.find_element_by_css_selector('#pane-side > div > div > span').text
-				if not_found == 'No chats, contacts or messages found' or not_found == 'Es wurden keine Chats, Kontakte oder Nachrichten gefunden':
-					return
-			except:
-				pass
-		try:
-			input = browser.find_element_by_css_selector('#main > footer > div._3oju3 > div._2bXVy > div > div._2S1VP.copyable-text.selectable-text')
-		except NoSuchElementException:
-			return
-		for c in message:
-			if c == '\n':
-				input.send_keys(Keys.SHIFT, Keys.ENTER)
-			else:
-				input.send_keys(c)
-		input.send_keys(Keys.ENTER)
-		print('Message sent to ' + n + '.')
-		sleep(0.5)
-
 
 def send_messages_to_contact(contact_name, *messages):
 	while True:
@@ -83,26 +47,6 @@ def send_messages_to_contact(contact_name, *messages):
 		input.send_keys(Keys.ENTER)
 		print('Message sent to ' + contact_name + '.')
 		sleep(0.5)
-
-def send_message_to_number(number, message):
-	print('d')
-	message = message.replace(' ', '%20')
-	for c in number:
-		if c not in '0123456789':
-			number = number.replace(c, '')
-	browser.get('https://api.whatsapp.com/send?phone=' + number + '&text=' + message)
-	try:
-		browser.find_element_by_id('action-button').click()
-	except NoSuchElementException:
-		pass
-	while True:
-		try:
-			browser.find_element_by_css_selector('#main > footer > div._3oju3 > button').click()
-		except NoSuchElementException:
-			sleep(1)
-			continue
-		break
-	print('Message sent to ' + number + '.')
 
 def retrieve_newest(contact_name, num):
 	while True:
