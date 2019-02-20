@@ -8,6 +8,8 @@ Requirements
 - python3
 - firefox
 
+If you prefere to run this project on chromium / chrome you need to get the chromiumdriver which will work as well.
+
 In wbot.py the path to geckodriver must be set. Make sure you fill in the full path!
 
 ```python
