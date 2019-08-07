@@ -41,6 +41,6 @@ Ready to go.
 
 I am not responsible for anything you do with this bot. Be careful and be nice. Don't send Spam.
 
-Note: This Project was initialized by Carlos Göhring
+Note: This Project was initialized by Carlos Göhring @sbytex
 
 
